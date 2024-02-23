@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./",
+    "baseUrl": "./",
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+  },
+  "include": [ "src/**/*", "config/**/*", ".eslintrc.js" ],
+  "exclude": [ "node_modules", "**/*.spec.ts" ]
+}

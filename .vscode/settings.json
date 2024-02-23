@@ -1,0 +1,34 @@
+{
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    },
+      "editor.tokenColorCustomizations": {
+        "textMateRules": [
+          {
+            "scope": [
+              "keyword.control.conditional",
+              "keyword.operator",
+              "keyword.operator.new",
+              "meta.function-call.js",
+            ],
+            "settings": {
+              "fontStyle": "italic underline",
+            }
+          },
+          {
+            "scope": [
+              "keyword.control.conditional",
+              "keyword.operator",
+            ],
+            "settings": {
+              "fontStyle": ""
+            }
+          },
+        ]
+      },
+      "eslint.validate": [
+        "javascript"
+      ],
+}
+  
+    
