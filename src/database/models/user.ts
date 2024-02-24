@@ -10,7 +10,7 @@ interface UserAttributes {
 interface UserInstance extends Model<UserAttributes>, UserAttributes {}
 
 export default  (sequelize: Sequelize) => {
-  const User = sequelize.define<UserInstance>('rishabh', {
+  const User = sequelize.define<UserInstance>('user', {
     public_id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,

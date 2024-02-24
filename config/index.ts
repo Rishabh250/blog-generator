@@ -45,7 +45,7 @@ const config: AppConfig = {
   HOST: process.env.HOST || '0.0.0.0',
   PORT: parseInt(process.env.PORT || '3000', 10),
   DATABASE: {
-    name: process.env.DB_NAME || 'blog',
+    name: process.env.DB_NAME || 'blogs_local',
     username: process.env.DB_USER_NAME || 'postgres',
     password: process.env.DB_PASSWORD || '1234',
     options: {

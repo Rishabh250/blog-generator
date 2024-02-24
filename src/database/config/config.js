@@ -1,4 +1,4 @@
-const dbName = process.env.DB_NAME || 'blog';
+const dbName = process.env.DB_NAME || 'blogs_local';
 const dbUser = process.env.DB_USER || 'postgres';
 const dbPassword = process.env.DB_PASSWORD || '1234';
 const dbHost = process.env.DB_HOST || 'localhost';
