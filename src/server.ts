@@ -1,26 +1,32 @@
-import express, { type Request, type Response } from 'express';
-import Database from './database';
-import AppConfig from '../config';
+import express, { Application } from 'express';
+import routes from './routes';
+import { responseMiddleware } from './middleware/response-handlers';
 
-const { sequelize: { models: { user: User } } } = Database;
+class App {
+  public app: Application;
 
-const { PORT } = AppConfig;
-const app = express();
-
-app.use(express.json());
-
-app.get('/', async (req: Request, res: Response) => {
-  try {
-    const users = await User.findAndCountAll();
-
-    res.json(users);
+  constructor() {
+    this.app = express();
+    this.setMiddlewares();
+    this.setRoutes();
+    this.start();
   }
-  catch (error) {
-    res.status(500).json({ error });
-  }
-});
 
-app.listen(PORT, () => {
-  // eslint-disable-next-line no-console
-  console.log(`Server is running on port ${PORT}`);
-});
+  private setMiddlewares(): void {
+    this.app.use(express.json());
+    this.app.use(responseMiddleware);
+  }
+
+  private setRoutes(): void {
+    this.app.use('/v1/users', routes);
+  }
+
+  private start(): void {
+    const port = process.env.PORT || 3000;
+
+    // eslint-disable-next-line no-console
+    this.app.listen(port, () => console.log(`Server running on port ${port}`));
+  }
+}
+
+new App();

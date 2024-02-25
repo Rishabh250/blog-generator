@@ -1,4 +1,7 @@
+import * as dotenv from 'dotenv';
 import { version, name } from '../package.json';
+
+dotenv.config({ path: './.env.local' });
 
 interface DatabaseConfig {
   name: string;
