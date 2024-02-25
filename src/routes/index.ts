@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { UserRoutes } from './user';
 
-export class Routes {
+class Routes {
   private router: Router = Router();
   private userRoutes: UserRoutes = new UserRoutes();
 

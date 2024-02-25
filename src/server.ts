@@ -1,6 +1,6 @@
-// app.ts
 import express, { Application } from 'express';
 import routes from './routes';
+import { responseMiddleware } from './middleware/response-handlers';
 
 class App {
   public app: Application;
@@ -14,6 +14,7 @@ class App {
 
   private setMiddlewares(): void {
     this.app.use(express.json());
+    this.app.use(responseMiddleware);
   }
 
   private setRoutes(): void {
