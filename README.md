@@ -1,4 +1,4 @@
-# Project Name
+# AutoBlogGen: Advanced Blog Automation System
 
 Brief description of the project.
 

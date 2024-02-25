@@ -1,46 +1,61 @@
 import { QueryInterface, DataTypes } from 'sequelize';
 
 module.exports = {
-  up: async (queryInterface: QueryInterface): Promise<void> => {
-    await queryInterface.createTable('user', {
+  up: async (queryInterface: QueryInterface) => {
+    await queryInterface.createTable('basic_profile', {
       id: {
         type: DataTypes.INTEGER,
-        defaultValue: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
       },
       public_id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
-        unique: true,
+        primaryKey: true
+      },
+      user_id: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        references: {
+          model: 'user',
+          key: 'public_id'
+        }
       },
       first_name: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
       last_name: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false
       },
       email: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
-      hashed_password: {
+      mobile_number: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
       },
-      google_id: {
+      company_name: {
         type: DataTypes.STRING,
+        allowNull: false
       },
-      salt: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        defaultValue: 10,
+      subscription_plan: {
+        type: DataTypes.STRING,
+        allowNull: false
       },
-      password_validity: {
+      subscription_status: {
+        type: DataTypes.ENUM('active', 'inactive'),
+        allowNull: false
+      },
+      subscription_validity: {
         type: DataTypes.DATE,
-        allowNull: false,
+        allowNull: false
       },
       created_by: {
         type: DataTypes.UUID,
@@ -60,7 +75,5 @@ module.exports = {
       },
     });
   },
-  down: async (queryInterface: QueryInterface): Promise<void> => {
-    await queryInterface.dropTable('user');
-  },
-};
+  down: async (queryInterface: QueryInterface) => await queryInterface.dropTable('basic_profile'),
+}
