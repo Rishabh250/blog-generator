@@ -12,6 +12,12 @@ declare global {
       notFound: () => Response;
       serverError: () => Response;
     }
+
+    export interface Request {
+      user: {
+        userId: string;
+      };
+    }
   }
 }
 

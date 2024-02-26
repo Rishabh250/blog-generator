@@ -2,7 +2,7 @@
   "name": "blog-generator",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/server.ts",
   "scripts": {
     "start": "ts-node src/server.ts",
     "migrate": "ts-node ./node_modules/.bin/sequelize db:migrate",
@@ -20,8 +20,10 @@
     "joi": "^17.12.2",
     "pg": "^8.11.3",
     "pg-hstore": "^2.3.4",
+    "reflect-metadata": "^0.2.1",
     "sequelize": "^6.37.1",
-    "sequelize-cli": "^6.6.2"
+    "sequelize-cli": "^6.6.2",
+    "typedi": "^0.10.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",

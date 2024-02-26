@@ -1,16 +1,13 @@
-import { Request as ExpressRequest, Response } from 'express'
+import { Service } from 'typedi';
+import { Request, Response } from 'express'
 import UserSchema from '../validation/user';
+import { IUserController } from 'src/interfaces/IUserController';
 
 const { createSchema } = UserSchema;
 
-interface Request extends ExpressRequest {
-  user: {
-    userId: string;
-  };
-}
-
-class UserController {
-  public create = async (req: ExpressRequest, res: Response) => {
+@Service()
+class UserController implements IUserController {
+  public create = async (req: Request, res: Response) => {
     try {
       const { body, user: { userId = '' } = {} } = req as Request;
       const data = { ...body, userId };
@@ -30,19 +27,17 @@ class UserController {
     }
   }
 
-  public getList =async  (req: ExpressRequest, res: Response) => {
+  public getList =async  (req: Request, res: Response) => {
     return res.getRequest({ message: 'User list' });
   }
 
-  public getDetailsById = async (req: ExpressRequest, res: Response) => {
+  public getDetailsById = async (req: Request, res: Response) => {
     return res.status(200).json({ message: 'User details' });
   }
 
-  public update = async (req: ExpressRequest, res: Response) => {
+  public update = async (req: Request, res: Response) => {
     return res.status(200).json({ message: 'User updated' });
   }
 }
 
-const userController = new UserController();
-
-export default userController;
+export default UserController;
