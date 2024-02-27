@@ -7,4 +7,4 @@ interface IUserController {
     update(req: Request, res: Response): void;
 }
 
-export { IUserController };
+export default IUserController;

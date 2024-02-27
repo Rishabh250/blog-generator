@@ -1,8 +1,8 @@
-import { Service } from 'typedi';
+import { Service as DIService } from 'typedi';
 import { Router } from 'express';
 import { UserRoutes } from './user';
 
-@Service()
+@DIService()
 class Routes {
   private router: Router;
 

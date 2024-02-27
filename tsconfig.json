@@ -16,6 +16,6 @@
   "ts-node": {
     "files": true
   },
-  "include": [ "src/**/*", "config/**/*", ".eslintrc.js", "@types/**/*" ],
-  "exclude": [ "node_modules", "**/*.spec.ts" ]
+  "include": [ "./src/**/*", "config/**/*", ".eslintrc.js", "@types/**/*" ],
+  "exclude": [ "node_modules", "**/*.spec.ts", "./jest.config.js" ],
 }

@@ -1,8 +1,8 @@
-import { Service } from 'typedi';
+import { Service as DIService } from 'typedi';
 import { Router } from 'express';
 import UserController  from '../controllers/user';
 
-@Service()
+@DIService()
 export class UserRoutes {
   public router: Router;
 

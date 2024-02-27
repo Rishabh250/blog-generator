@@ -7,7 +7,7 @@ declare global {
         postRequest: () => Response;
         getRequest: (data: any) => Response;
         updated: () => Response;
-        badRequest: (error: any) => Response;
+        badRequest: (name: string, error: any) => Response;
         unAuthorized: () => Response;
         forbidden: () => Response;
         notFound: () => Response;
@@ -20,6 +20,15 @@ declare global {
         };
       }
     }
+    interface ServiceResponse {
+      doc?: any;
+      errors?: any;
+    }
+    interface HashPassword {
+      salt: string;
+      hash: string;
+    }
+
   }
 
 export function responseMiddleware(req: Request, res: Response, next: NextFunction): void;
