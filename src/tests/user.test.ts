@@ -1,5 +1,5 @@
 import UserServices from '../services/user';
-import { IUserCreate } from "src/interfaces";
+import { IUserCreate } from "../interfaces";
 import Helpers from "../utils/helpers";
 import Database from "../database";
 import Container from 'typedi';

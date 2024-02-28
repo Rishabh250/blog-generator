@@ -1,4 +1,4 @@
-import { IConstants } from 'src/interfaces';
+import { IConstants } from '../interfaces';
 
 const CONSTANTS: IConstants = {
   RESPONSE_ERROR: {

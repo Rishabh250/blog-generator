@@ -28,7 +28,6 @@ export default ( sequelize: Sequelize) => {
     },
     user_id: {
       type: DataTypes.UUID,
-      allowNull: false,
       references: {
         model: 'user',
         key: 'public_id'
@@ -52,32 +51,29 @@ export default ( sequelize: Sequelize) => {
       allowNull: false
     },
     mobile_number: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING
     },
     company_name: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING
     },
     subscription_plan: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.STRING
     },
     subscription_status: {
-      type: DataTypes.ENUM('active', 'inactive'),
-      allowNull: false
+      type: DataTypes.ENUM('active', 'inactive')
     },
     subscription_validity: {
-      type: DataTypes.DATE,
-      allowNull: false
+      type: DataTypes.DATE
     },
     created_by: {
       type: DataTypes.UUID,
+      allowNull: false,
     },
     updated_by: {
       type: DataTypes.UUID,
+      allowNull: false,
     }
-  })
+  },{ freezeTableName: true, underscored: true, timestamps: true })
 
   return BasicProfile;
 }

@@ -35,43 +35,46 @@ module.exports = {
       },
       email: {
         type: DataTypes.STRING,
-        unique: true,
-        allowNull: false
+        unique: true
       },
       mobile_number: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.STRING
       },
       company_name: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.STRING
       },
       subscription_plan: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.STRING
       },
       subscription_status: {
         type: DataTypes.ENUM('active', 'inactive'),
-        allowNull: false
+        defaultValue: 'inactive'
       },
       subscription_validity: {
-        type: DataTypes.DATE,
-        allowNull: false
+        type: DataTypes.DATE
       },
       created_by: {
         type: DataTypes.UUID,
+        allowNull: false,
+        references: {
+          model: 'user',
+          key: 'public_id'
+        }
       },
       updated_by: {
         type: DataTypes.UUID,
+        allowNull: false,
+        references: {
+          model: 'user',
+          key: 'public_id'
+        }
       },
       created_at: {
         type: DataTypes.DATE,
-        allowNull: false,
         defaultValue: DataTypes.NOW,
       },
       updated_at: {
         type: DataTypes.DATE,
-        allowNull: false,
         defaultValue: DataTypes.NOW,
       },
     });

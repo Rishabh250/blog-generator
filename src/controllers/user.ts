@@ -19,7 +19,7 @@ class UserController implements IUserController {
 
   public create = async (req: Request, res: Response) => {
     try {
-      const { body, user: { userId = '' } = {} } = req;
+      const { body, user: { userId } = {} } = req;
       const data = { ...body, userId };
 
       const { error } = this.createSchema.create.validate(data);
